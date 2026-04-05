@@ -106,11 +106,17 @@ const Footer = () => {
                 <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5 text-blue-500" />
                 <div>
                   <div className="text-sm font-semibold text-white">Location</div>
-                  <div className="text-sm leading-relaxed">
+                  <a 
+                    href="https://www.google.com/maps/place/RPX3%2B9J+Korutla,+Telangana/@18.8233,78.7043,17z"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm leading-relaxed hover:text-white transition-colors hover:underline"
+                  >
                     Survey No. 1623, Allapur (V),<br />
                     Hayath Nagar (M), Jagital (Dist),<br />
-                    Telangana - 505325, India
-                  </div>
+                    Telangana - 505325, India<br />
+                    <span className="text-blue-400 text-xs mt-1 inline-block">📍 View on Google Maps</span>
+                  </a>
                 </div>
               </div>
             </div>

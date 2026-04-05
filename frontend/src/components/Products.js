@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
 import { Flame, Leaf, Sparkles, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
-const Products = ({ onGetQuoteClick }) => {
+const Products = () => {
   const [showAllProducts, setShowAllProducts] = useState(false);
   
   const products = [
@@ -277,28 +277,6 @@ const Products = ({ onGetQuoteClick }) => {
                       </li>
                     ))}
                   </ul>
-                </div>
-
-                {/* CTA Buttons */}
-                <div className="flex gap-3">
-                  <Button 
-                    onClick={() => onGetQuoteClick(product.name)}
-                    className={`flex-1 bg-gradient-to-r ${product.color} hover:opacity-90 text-white font-semibold`}
-                    data-testid={`get-quote-${product.id}`}
-                  >
-                    Get Quote
-                  </Button>
-                  <Button 
-                    variant="outline"
-                    className="flex-1 border-2 hover:bg-gray-50"
-                    onClick={() => {
-                      const element = document.getElementById('sample-form');
-                      if (element) element.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    data-testid={`request-sample-${product.id}`}
-                  >
-                    Free Sample
-                  </Button>
                 </div>
               </div>
             </div>

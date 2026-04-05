@@ -10,8 +10,6 @@ import WhyChooseUs from '@/components/WhyChooseUs';
 import Products from '@/components/Products';
 import HowItWorks from '@/components/HowItWorks';
 import Testimonials from '@/components/Testimonials';
-import SampleRequestForm from '@/components/SampleRequestForm';
-import QuoteRequestForm from '@/components/QuoteRequestForm';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 
@@ -19,8 +17,6 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
 const HomePage = () => {
-  const [selectedProduct, setSelectedProduct] = useState('');
-
   // Test API connection
   useEffect(() => {
     const testConnection = async () => {
@@ -34,19 +30,10 @@ const HomePage = () => {
     testConnection();
   }, []);
 
-  const handleGetSample = () => {
-    const element = document.getElementById('sample-form');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleGetQuote = (productName = '') => {
-    setSelectedProduct(productName);
-    const element = document.getElementById('quote');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const handleWhatsAppClick = () => {
+    const phoneNumber = '917569515541';
+    const message = encodeURIComponent('Hi! I am interested in your bulk spice products. Please provide more information.');
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   };
 
   return (
@@ -55,45 +42,19 @@ const HomePage = () => {
       <Header />
 
       {/* Hero Section */}
-      <Hero onGetSampleClick={handleGetSample} />
+      <Hero onGetSampleClick={handleWhatsAppClick} />
 
       {/* Why Choose Us */}
       <WhyChooseUs />
 
       {/* Products */}
-      <Products onGetQuoteClick={handleGetQuote} />
+      <Products />
 
       {/* How It Works */}
       <HowItWorks />
 
       {/* Testimonials */}
       <Testimonials />
-
-      {/* Forms Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-8">
-            {/* Sample Request Form */}
-            <SampleRequestForm />
-
-            {/* Quote Request Form */}
-            <QuoteRequestForm preSelectedProduct={selectedProduct} />
-          </div>
-
-          {/* Trust Section */}
-          <div className="mt-12 bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-8 border-2 border-green-200">
-            <div className="text-center">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                🔒 Your Information is Safe with Us
-              </h3>
-              <p className="text-gray-700 max-w-2xl mx-auto">
-                We respect your privacy and never share your information with third parties. 
-                All data is securely stored and used only to serve you better.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Footer */}
       <Footer />
