@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Flame, Leaf, Sparkles, ArrowRight } from 'lucide-react';
+import { Flame, Leaf, Sparkles, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
 
 const Products = ({ onGetQuoteClick }) => {
+  const [showAllProducts, setShowAllProducts] = useState(false);
+  
   const products = [
     {
       id: 'red-chilli',
@@ -51,6 +53,166 @@ const Products = ({ onGetQuoteClick }) => {
         'Premium quality standardized extracts'
       ],
       description: 'Premium turmeric powder with high curcumin content. Natural color and powerful properties make it essential for authentic Indian cuisine.'
+    },
+    {
+      id: 'garam-masala',
+      name: 'Garam Masala',
+      tagline: 'Authentic Spice Blend',
+      image: 'https://images.unsplash.com/photo-1771541897176-44a3e01dc484',
+      icon: <Sparkles className="w-6 h-6" />,
+      color: 'from-amber-600 to-orange-700',
+      benefits: [
+        'Perfect blend of premium spices',
+        'Aromatic and flavorful',
+        'Enhances curry dishes instantly',
+        'Consistent taste profile',
+        'Ready-to-use blend'
+      ],
+      description: 'Traditional Indian spice blend combining cardamom, cinnamon, cloves, and more. Essential for authentic North Indian cuisine.'
+    },
+    {
+      id: 'black-pepper',
+      name: 'Black Pepper Powder',
+      tagline: 'King of Spices',
+      image: 'https://images.pexels.com/photos/31280796/pexels-photo-31280796.jpeg',
+      icon: <Flame className="w-6 h-6" />,
+      color: 'from-gray-700 to-gray-900',
+      benefits: [
+        'Strong pungent flavor',
+        'High piperine content',
+        'Freshly ground quality',
+        'Versatile seasoning',
+        'Premium grade pepper'
+      ],
+      description: 'Finest quality black pepper powder with strong aroma and sharp taste. Perfect for seasoning and enhancing flavor profiles.'
+    },
+    {
+      id: 'cumin',
+      name: 'Cumin Powder (Jeera)',
+      tagline: 'Essential Indian Spice',
+      image: 'https://images.unsplash.com/photo-1581600140682-d4e68c8cde32',
+      icon: <Leaf className="w-6 h-6" />,
+      color: 'from-yellow-700 to-amber-800',
+      benefits: [
+        'Earthy, warm flavor',
+        'Essential for tadka/tempering',
+        'Aids in digestion',
+        'Fine grinding consistency',
+        'Pure cumin seeds ground'
+      ],
+      description: 'High-quality cumin powder with distinctive earthy aroma. A staple in Indian cooking, perfect for dal, curries, and vegetables.'
+    },
+    {
+      id: 'kashmiri-chilli',
+      name: 'Kashmiri Red Chilli',
+      tagline: 'Vibrant Color, Mild Heat',
+      image: 'https://images.unsplash.com/photo-1768729340132-a8c72080bb23',
+      icon: <Flame className="w-6 h-6" />,
+      color: 'from-red-500 to-red-700',
+      benefits: [
+        'Brilliant red color',
+        'Mild heat level',
+        'Perfect for tandoori dishes',
+        'Natural food coloring',
+        'Premium Kashmiri quality'
+      ],
+      description: 'Authentic Kashmiri chilli powder known for its deep red color and mild heat. Ideal for dishes requiring vibrant color without excessive spiciness.'
+    },
+    {
+      id: 'cardamom',
+      name: 'Cardamom Powder',
+      tagline: 'Queen of Spices',
+      image: 'https://images.unsplash.com/photo-1656497119922-068c6a5e1193',
+      icon: <Sparkles className="w-6 h-6" />,
+      color: 'from-green-500 to-teal-600',
+      benefits: [
+        'Intense aromatic flavor',
+        'Perfect for biryanis & desserts',
+        'Freshly ground premium pods',
+        'Natural sweet aroma',
+        'High essential oil content'
+      ],
+      description: 'Premium cardamom powder from finest green pods. Adds exotic aroma to biryanis, desserts, and traditional beverages.'
+    },
+    {
+      id: 'clove',
+      name: 'Clove Powder',
+      tagline: 'Powerful Aroma',
+      image: 'https://images.unsplash.com/photo-1716816211590-c15a328a5ff0',
+      icon: <Flame className="w-6 h-6" />,
+      color: 'from-brown-600 to-brown-800',
+      benefits: [
+        'Strong distinctive flavor',
+        'Natural antimicrobial properties',
+        'Perfect for garam masala',
+        'Long shelf life',
+        'Premium quality cloves'
+      ],
+      description: 'Finest clove powder with intense aroma and flavor. Essential ingredient in spice blends and traditional Indian recipes.'
+    },
+    {
+      id: 'cinnamon',
+      name: 'Cinnamon Powder',
+      tagline: 'Sweet & Aromatic',
+      image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d',
+      icon: <Sparkles className="w-6 h-6" />,
+      color: 'from-orange-600 to-red-700',
+      benefits: [
+        'Sweet warm flavor',
+        'Perfect for bakery & beverages',
+        'Natural antioxidants',
+        'Ceylon cinnamon quality',
+        'Finely ground texture'
+      ],
+      description: 'Premium cinnamon powder with sweet, warm notes. Ideal for both savory dishes and desserts, beverages, and baking.'
+    },
+    {
+      id: 'fenugreek',
+      name: 'Fenugreek Powder (Methi)',
+      tagline: 'Healthy & Flavorful',
+      image: 'https://images.pexels.com/photos/7925765/pexels-photo-7925765.jpeg',
+      icon: <Leaf className="w-6 h-6" />,
+      color: 'from-yellow-600 to-amber-700',
+      benefits: [
+        'Slightly bitter, nutty flavor',
+        'Health benefits for digestion',
+        'Perfect for pickles & curries',
+        'Natural yellow color',
+        'Premium methi seeds'
+      ],
+      description: 'Quality fenugreek powder with distinctive flavor. Widely used in Indian pickles, curries, and traditional dishes for taste and health.'
+    },
+    {
+      id: 'mustard',
+      name: 'Mustard Powder',
+      tagline: 'Pungent & Tangy',
+      image: 'https://images.unsplash.com/photo-1768729340925-2749ecdc211c',
+      icon: <Flame className="w-6 h-6" />,
+      color: 'from-yellow-500 to-yellow-700',
+      benefits: [
+        'Sharp, tangy flavor',
+        'Essential for South Indian cooking',
+        'Perfect for tempering',
+        'Natural preservative',
+        'Bright yellow color'
+      ],
+      description: 'Premium mustard powder with pungent flavor. Essential for South Indian cuisine, pickles, and tempering dishes.'
+    },
+    {
+      id: 'curry-powder',
+      name: 'Curry Powder',
+      tagline: 'Complete Curry Blend',
+      image: 'https://images.pexels.com/photos/8649386/pexels-photo-8649386.jpeg',
+      icon: <Sparkles className="w-6 h-6" />,
+      color: 'from-yellow-600 to-orange-600',
+      benefits: [
+        'Ready-to-use curry blend',
+        'Perfect spice balance',
+        'Saves preparation time',
+        'Consistent flavor every time',
+        'Versatile for all curries'
+      ],
+      description: 'Expertly blended curry powder combining multiple spices. Perfect for busy kitchens requiring quick, authentic curry flavor.'
     }
   ];
 
@@ -69,7 +231,7 @@ const Products = ({ onGetQuoteClick }) => {
 
         {/* Products Grid */}
         <div className="grid lg:grid-cols-3 gap-8 mb-12" data-testid="products-grid">
-          {products.map((product, index) => (
+          {(showAllProducts ? products : products.slice(0, 6)).map((product, index) => (
             <div 
               key={product.id}
               className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100"
@@ -142,6 +304,36 @@ const Products = ({ onGetQuoteClick }) => {
             </div>
           ))}
         </div>
+
+        {/* Show More/Less Button */}
+        {products.length > 6 && (
+          <div className="text-center mb-12">
+            <Button 
+              onClick={() => setShowAllProducts(!showAllProducts)}
+              size="lg"
+              variant="outline"
+              className="border-2 border-red-600 text-red-600 hover:bg-red-50 px-8 py-6 text-lg font-semibold"
+              data-testid="show-more-products-btn"
+            >
+              {showAllProducts ? (
+                <>
+                  <ChevronUp className="mr-2" size={24} />
+                  Show Less Products
+                </>
+              ) : (
+                <>
+                  <ChevronDown className="mr-2" size={24} />
+                  View All {products.length} Products
+                </>
+              )}
+            </Button>
+            {!showAllProducts && (
+              <p className="text-gray-600 mt-3">
+                Showing 6 of {products.length} premium spice products
+              </p>
+            )}
+          </div>
+        )}
 
         {/* Upcoming Product Teaser */}
         <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl p-8 border-2 border-dashed border-orange-300">

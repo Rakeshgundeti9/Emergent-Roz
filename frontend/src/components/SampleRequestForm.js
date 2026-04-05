@@ -25,7 +25,22 @@ const SampleRequestForm = () => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
 
-  const products = ['Red Chilli Powder', 'Coriander Powder', 'Turmeric Powder', 'Special Pickle Chilli'];
+  const products = [
+    'Red Chilli Powder',
+    'Coriander Powder',
+    'Turmeric Powder',
+    'Garam Masala',
+    'Black Pepper Powder',
+    'Cumin Powder (Jeera)',
+    'Kashmiri Red Chilli',
+    'Cardamom Powder',
+    'Clove Powder',
+    'Cinnamon Powder',
+    'Fenugreek Powder (Methi)',
+    'Mustard Powder',
+    'Curry Powder',
+    'Special Pickle Chilli'
+  ];
 
   const handleProductToggle = (product) => {
     setFormData(prev => ({
@@ -157,7 +172,7 @@ const SampleRequestForm = () => {
         {/* Products Interested */}
         <div>
           <Label className="mb-3 block">Products Interested In *</Label>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 max-h-64 overflow-y-auto border border-gray-200 rounded-lg p-4">
             {products.map((product) => (
               <div key={product} className="flex items-center space-x-2">
                 <Checkbox
@@ -177,6 +192,9 @@ const SampleRequestForm = () => {
           </div>
           {formData.products_interested.length === 0 && (
             <p className="text-xs text-red-600 mt-1">Please select at least one product</p>
+          )}
+          {formData.products_interested.length > 0 && (
+            <p className="text-xs text-green-600 mt-1">✓ {formData.products_interested.length} product(s) selected</p>
           )}
         </div>
 

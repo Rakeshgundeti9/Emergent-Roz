@@ -26,7 +26,22 @@ const QuoteRequestForm = ({ preSelectedProduct = '' }) => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
 
-  const products = ['Red Chilli Powder', 'Coriander Powder', 'Turmeric Powder', 'Special Pickle Chilli'];
+  const products = [
+    'Red Chilli Powder',
+    'Coriander Powder',
+    'Turmeric Powder',
+    'Garam Masala',
+    'Black Pepper Powder',
+    'Cumin Powder (Jeera)',
+    'Kashmiri Red Chilli',
+    'Cardamom Powder',
+    'Clove Powder',
+    'Cinnamon Powder',
+    'Fenugreek Powder (Methi)',
+    'Mustard Powder',
+    'Curry Powder',
+    'Special Pickle Chilli'
+  ];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
